@@ -1,1 +1,5 @@
-/usr/share/wayland-sessions/wrapped_hl.desktop
+[Desktop Entry]
+Name=run-hyprland
+Comment=An intelligent dynamic tiling Wayland compositor
+Exec=/home/pvr/.local/bin/wrappedhl
+Type=Application

@@ -1,1 +1,5 @@
-/usr/share/wayland-sessions/hyprland.desktop
+[Desktop Entry]
+Name=Hyprland
+Comment=An intelligent dynamic tiling Wayland compositor
+Exec=Hyprland
+Type=Application
