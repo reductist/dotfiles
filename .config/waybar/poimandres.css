@@ -1,0 +1,27 @@
+/* 
+poimandres
+https://github.com/olivercederborg/poimandres.nvim/blob/main/lua/poimandres/palette.lua
+*/
+
+@define-color yellow #FFFAC2;
+@define-color teal1 #5DE4C7;
+@define-color teal2 #5FB3A1;
+@define-color teal3 #42675A;
+@define-color blue1 #89DDFF;
+@define-color blue2 #ADD7FF;
+@define-color blue3 #91B4D5;
+@define-color blue4 #7390AA;
+@define-color pink1 #FAE4FC;
+@define-color pink2 #FCC5E9;
+@define-color pink3 #D0679D;
+@define-color blueGray1 #A6ACCD;
+@define-color blueGray2 #767C9D;
+@define-color blueGray3 #505571;
+@define-color background1 #303340;
+@define-color background2 #252937;
+@define-color background3 #1f222e;
+@define-color background4 #15161e;
+@define-color text #E4F0FB;
+@define-color whiteLow #d4e1ec;
+@define-color white #eff5fa;
+@define-color purple #c4a7e7;

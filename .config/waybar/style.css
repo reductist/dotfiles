@@ -1,0 +1,354 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@import "rosepinemoon.css";
+
+@keyframes blink-warning {
+    20% { color: @rose; }
+    to { color: @subtle; }
+}
+
+@keyframes blink-critical {
+    20% { color: @love; }
+    to { color: @subtle; }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    transition-duration: 0s;
+}
+
+tooltip {
+    font-family: 'Symbols Nerd Font', 'CaskaydiaCove Nerd Font Mono';
+    border: 1px solid @base;
+    background-color: @overlay;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+tooltip label {
+    padding: 0.5rem 1rem;
+    color: @text;
+}  
+
+/* The whole bar */
+#waybar {
+    background: transparent;
+    color: @subtle;
+    font-family: 'Symbols Nerd Font', 'Iosevka Nerd Font Mono', monospace;
+    font-size: 17px;
+    font-weight: 500;
+    /*box-shadow: inset 0 0 20px 12px rgba(66, 69, 105, 0.2);*/
+}
+
+/* Every modules */
+#bluetooth,
+#battery,
+#clock,
+#backlight,
+#cpu,
+#custom-keyboard-layout,
+#memory,
+#mode,
+#custom-weather,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#idle_inhibitor,
+#custom-PBPbattery,
+#custom-power {
+    color: @subtle;
+    background: @bg;
+    padding-top: 0.5rem;
+    padding-bottom: 0.4rem;
+    margin-left: 0.4rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Modules styles
+ * -------------------------------------------------------------------------- */
+
+
+/* -----------------------------------------------------------------------------
+ * Right - system details
+ * -------------------------------------------------------------------------- */
+
+
+/* power group */
+
+#custom-power {
+    min-width: 3rem;
+    margin-right: 0.1rem;
+    border-radius: 4px;
+    background: @bgLow;
+    color: @iris;
+}
+
+
+/* idle group */
+
+#idle_inhibitor {
+    min-width: 3rem;
+    border-radius: 4px;
+    background: @bg;
+    color: @iris;
+}
+
+
+/* audio group */
+
+#pulseaudio {
+    min-width: 6rem;
+    border-radius: 4px;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+#pulseaudio.muted {
+    color: @love;
+}
+
+
+/* audio group */
+
+#bluetooth {
+    min-width: 4rem;
+    margin-left: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-left: 1px solid @bg;
+    border-radius: 0 4px 4px 0;
+}
+
+#backlight {
+    min-width: 4rem;
+    padding-left: 1rem;
+    border-right: 1px solid @bg;
+    border-radius: 4px 0 0 4px;
+    margin-left: 0.4rem;
+}
+
+#memory {
+    min-width: 4rem;
+    padding-right: 0.8rem;
+    margin-left: 0;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    border-left: 1px solid @bg;
+    border-radius: 0 4px 4px 0;
+}
+
+#memory.warning {
+    color: @rose;
+ }
+
+#memory.critical {
+    color: @love;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+
+#cpu {
+    min-width: 4rem;
+    padding-left: 0.6rem;
+    border-right: 1px solid @bg;
+    border-radius: 4px 0 0 4px;
+    margin-left: 0.4rem;
+}
+
+#cpu.warning {
+    color: @rose;
+}
+
+#cpu.critical {
+    color: @love;
+}
+
+
+#tray {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+    border-radius: 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-palette: success @muted, error @love, warning @rose;
+}
+
+#tray > .active {
+    -gtk-icon-palette: success @subtle, error @love, warning @rose;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-palette: success @love, error @love, warning @rose;
+}
+
+#network {
+    min-width: 4rem;
+    padding-right: 1rem;
+    border-radius: 0 4px 4px 0;
+}
+
+#network.disconnected {
+    color: @gold
+}
+
+#temperature.critical {
+    color: @love;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Center - weather, clock, battery
+ * -------------------------------------------------------------------------- */
+
+
+/* battery group */
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    min-width: 5rem;
+    margin-left: 0;
+    border-radius: 4px;
+}
+
+#battery.warning {
+    color: @rose;
+}
+
+#battery.critical {
+    color: @love;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 3s;
+}
+
+
+/* clock group */
+
+#clock {
+    border-radius: 4px;
+    min-width: 10rem;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    color: @iris;
+    font-size: 19px;
+    font-weight: 700;
+    background: @bgLow;
+}
+
+
+/* weather group */
+
+#custom-weather {
+    min-width: 5rem;
+    border-radius: 4px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Left - workspaces
+ * -------------------------------------------------------------------------- */
+
+#mode {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    background: @iris;
+    color: @bg;
+    margin-left: 2rem;
+}
+
+#workspaces {
+    background: @bgLow;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+#workspaces:first-child {
+    margin-left: 0.5rem;
+    border-radius: 4px 0 0 4px;
+}
+
+#workspaces:last-child {
+    margin-right: 0.5rem;
+    border-radius: 0 4px 4px 0;
+}
+
+#workspaces button {
+    border-bottom: 2px solid transparent;
+    margin: 0.3rem 0.5rem;
+    padding: 0px;
+    color: @muted;
+    font-size: 15px;
+    font-weight: 400;
+    min-width: 2rem;
+}
+
+#workspaces button:first-child {
+    margin-left: 1rem;
+}
+
+#workspaces button:last-child {
+    margin-right: 1rem;
+}
+
+#workspaces button.focused {
+    border-bottom: 2px solid @foam;
+    margin-bottom: 1px;
+    padding-left: 0;
+    color: @iris;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+#workspaces button.urgent {
+    color: @love;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+#custom-launcher {
+    color: @iris;
+    font-weight: 900;
+    margin-left:15px;
+    margin-right:10px;
+}

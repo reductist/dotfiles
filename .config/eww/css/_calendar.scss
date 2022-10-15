@@ -1,0 +1,27 @@
+.calendar-window {
+    @include rounding;
+    @include wshadow;
+    background-color: $bg;
+    border: 1px solid $border;
+    color: $fg;
+    padding: .2em;
+  }
+  
+  calendar {
+    padding: 5px;
+  
+    :selected {
+      color: $mauve;
+      font-weight: bold;
+    }
+  
+    .header {
+      color: $subtext1;
+    }
+  
+    .highlight {
+      color: $maroon;
+      font-weight: bold;
+    }
+  }
+  

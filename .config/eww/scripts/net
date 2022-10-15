@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+while true; do
+  status=$(nmcli g | tail -n 1 | awk '{print $1}')
+  signal=$(nmcli dev wifi | rg "\*" | awk '{ print $8 }')
+  essid=$(nmcli -t -f NAME connection show --active | head -n1)
+
+  icons=("𥉉" "直" "")
+
+  if [ "$status" = "disconnected" ] ; then
+    icon="睊"
+    color="#988ba2"
+  else
+    level=$(awk -v n="$signal" 'BEGIN{print int(n/30)}')
+    if [ "$level" -gt 3 ]; then
+      level=3
+    fi
+
+    icon=${icons[$level]}
+    color="#cba6f7"
+  fi
+
+  echo '{ "essid": "'"$essid"'", "icon": "'"$icon"'", "color": "'"$color"'" }'
+
+  sleep 3
+done

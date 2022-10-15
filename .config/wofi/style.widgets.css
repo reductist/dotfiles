@@ -1,0 +1,49 @@
+/*
+Arc-Dark Color Scheme
+*/
+
+@define-color highlight #c4a7e7;
+@define-color base1  #393552;
+@define-color base2  #393552;
+@define-color base3  #44415a;
+
+*{
+    font-family: MesloLGS Nerd Font;
+}
+
+#window {
+    border: 1px solid @highlight;
+    border-radius: 6px;
+}
+
+#inner-box {
+    background-color: @base2;
+}
+
+#outer-box {
+    margin: 2px;
+    padding: 0 1rem 0.5rem 1rem;
+    background-color: @base2;
+}
+
+#text {
+    padding: 5px;
+    color: #e0def4;
+}
+
+#text:selected {
+    color: #2a273f;
+    font-weight: 700;
+}
+
+#entry:nth-child(even) {
+    background-color: @base1;
+}
+
+#entry {
+    background-color: @base3;
+}
+
+#entry:selected {
+    background-color: @highlight;
+}
