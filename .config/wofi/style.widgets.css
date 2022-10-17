@@ -3,9 +3,9 @@ Arc-Dark Color Scheme
 */
 
 @define-color highlight #c4a7e7;
-@define-color base1  #393552;
+@define-color base1  #43407b;
 @define-color base2  #393552;
-@define-color base3  #44415a;
+@define-color base3  #1E1D2F;
 
 *{
     font-family: MesloLGS Nerd Font;
@@ -17,7 +17,9 @@ Arc-Dark Color Scheme
 }
 
 #inner-box {
-    background-color: @base2;
+    background-color: @base3;
+    border: 1.5px solid @base1;
+    border-radius: 4px;
 }
 
 #outer-box {
@@ -36,12 +38,9 @@ Arc-Dark Color Scheme
     font-weight: 700;
 }
 
-#entry:nth-child(even) {
-    background-color: @base1;
-}
-
 #entry {
     background-color: @base3;
+    padding-left: 1rem;
 }
 
 #entry:selected {

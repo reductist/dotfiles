@@ -9,8 +9,9 @@
 
     "modules-left": [
         // "custom/launcher",
-        "sway/workspaces",
-        "sway/mode",
+        // "sway/workspaces",
+        // "sway/mode",
+        "wlr/workspaces",
     ],
  
     "modules-center": [
@@ -140,6 +141,12 @@
     "sway/window": {
         "format": "{}",
         "max-length": 120
+    },
+
+    "wlr/workspaces": {
+        "sort-by-name": true
+        // "on-click": "/usr/local/bin/hyprctl dispatch workspace 3"
+        // "sort-by-coordinates": true
     },
 
     "sway/workspaces": {

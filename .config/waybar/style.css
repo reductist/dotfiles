@@ -340,6 +340,14 @@ tooltip label {
     font-weight: 900;
 }
 
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: transparent;
+    color: @iris;
+    transition: all 250ms; 
+}
+
 #workspaces button.urgent {
     color: @love;
     font-weight: 900;
