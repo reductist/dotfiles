@@ -1,0 +1,9 @@
+[Default]
+save_dir=$HOME/Pictures/screenshots
+save_filename_format=%Y%m%d-%H%M%S.png
+show_panel=true
+line_size=8
+text_size=20
+text_font=Ubuntu Semi-Bold
+early_exit=true
+

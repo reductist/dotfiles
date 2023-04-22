@@ -7,6 +7,8 @@ set $down j
 set $up k
 set $right l
 
+set $BROWSER "google-chrome-stable"
+
 # Your preferred terminal emulators
 #set $term-float xfce4-terminal
 set $term-float alacritty
@@ -42,7 +44,7 @@ exec swayidle -w\
     bindsym $mod+Return exec $term-float
 
     # Open the power menu
-    bindsym $mod+Shift+e exec $powermenu
+    bindsym $mod+p exec $powermenu
 
     # Kill focused window
     bindsym $mod+q kill
@@ -51,8 +53,8 @@ exec swayidle -w\
     bindsym $mod+d exec $menu
 
     # Activities
-    bindsym $mod+p exec ~/.config/wofi/windows.py
-    bindsym $mod+Escape exec ~/.config/wofi/windows.py
+    #bindsym $mod+p exec ~/.config/wofi/windows.py
+    bindsym Alt+Escape exec ~/.config/wofi/windows.py
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -96,6 +98,23 @@ exec swayidle -w\
 #
 # Workspaces:
 #
+
+    # attempt to bind to external monitors
+    workspace 1 output DP-2
+    workspace 2 output DP-2
+    workspace 3 output DP-2
+    workspace 4 output DP-2
+    workspace 5 output DP-2
+    workspace 6 output HDMI-A-1
+    workspace 7 output HDMI-A-1
+    workspace 8 output HDMI-A-1
+    workspace 9 output HDMI-A-1
+    workspace 10 output HDMI-A-1
+
+    bindsym $mod+Alt+Left focus output left
+    bindsym $mod+Alt+Right focus output right
+
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -121,6 +140,9 @@ exec swayidle -w\
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
+    # windows style alt tab
+    bindsym $mod+Tab workspace back_and_forth
+
     # CUSTOM prev/next workspace
     set $next_or_new swaymsg -r -t get_workspaces | \
         jq -r --arg OUTPUT "$(swaymsg -t get_outputs -r | \
@@ -136,17 +158,17 @@ exec swayidle -w\
         if $minOutput < $current then "prev_on_output" else $current end'
 
     # switch
-    bindsym $mod+Next workspace next
-    bindsym $mod+Prior workspace prev
+    bindsym $mod+Next workspace next_on_output
+    bindsym $mod+Prior workspace prev_on_output
     # move
     # move next, if it exists
-    bindsym $mod+Shift+Next move container to workspace next, workspace next
+    bindsym Alt+Shift+Next move container to workspace next, workspace next
     # move next and create if does not exist
-    bindsym Alt+Shift+Next exec swaymsg "move container to workspace $($next_or_new), workspace next_on_output"
+    bindsym $mod+Shift+Next exec swaymsg "move container to workspace $($next_or_new), workspace next_on_output"
     # move prev if it exists
-    bindsym $mod+Shift+Prior move container to workspace prev, workspace prev
+    bindsym Alt+Shift+Prior move container to workspace prev, workspace prev
     # move prev and create if does not exist
-    bindsym Alt+Shift+Prior exec swaymsg "move container to workspace $($previous_or_first), workspace prev_on_output"
+    bindsym $mod+Shift+Prior exec swaymsg "move container to workspace $($previous_or_first), workspace prev_on_output"
 
 #
 # Layout stuff:
@@ -255,8 +277,11 @@ mode "resize" {
 # App shortcuts
 #
     bindsym $mod+n exec thunar
-    #bindsym $mod+o exec firefox
-    bindsym $mod+o exec google-chrome
+    bindsym $mod+o exec $BROWSER
+    bindsym $mod+i exec 'rofi-rbw -a copy -t password'
+    bindsym $mod+u exec 'rofi-rbw -a copy -t username'
+    bindsym $mod+Shift+i exec 'rofi-rbw -a type -t password'
+    bindsym $mod+Shift+u exec 'rofi-rbw -a type -t username'
 #
 # Screenshots
 #
@@ -268,28 +293,26 @@ mode "resize" {
     bindsym $mod+t exec xed ~/.config/sway/cheatsheet
 
 # CUSTOM #
-    # toggle bar
-    bindsym Alt+space exec killall -SIGUSR1 waybar
-    # prev workspace on monitor
-    bindsym $mod+comma workspace prev_on_output
-    # next workspace on monitor
-    bindsym $mod+period workspace next_on_output
-    # windows style alt tab
-    bindsym $mod+Tab workspace back_and_forth
+# toggle bar
+bindsym Alt+space exec killall -SIGUSR1 waybar
+# restart bar
+bindsym $mod+Alt+space exec killall -SIGUSR2 waybar
+# prev workspace on monitor
+bindsym $mod+comma workspace prev_on_output
+# next workspace on monitor
+bindsym $mod+period workspace next_on_output
+# launch or switch to chrome
+bindsym $mod+Shift+o exec $BROWSER
 
-    # launch or switch to chrome
-    bindsym $mod+Shift+o exec ~/.config/sway/scripts/sway-run-or-raise google-chrome "google-chrome" "google-chrome-stable"
+bindsym $mod+Control+Shift+Right move workspace to output right
+bindsym $mod+Control+Shift+Left move workspace to output left
+#bindsym $mod+Control+Shift+Down move workspace to output down
+#bindsym $mod+Control+Shift+Up move workspace to output up
 
-    #bindsym $mod+Control+Shift+Right move workspace to output right
-    #bindsym $mod+Control+Shift+Left move workspace to output left
-    #bindsym $mod+Control+Shift+Down move workspace to output down
-    #bindsym $mod+Control+Shift+Up move workspace to output up
+# swaysome - awesomewm style workspaces
+# make conditional on external monitor detection
+# include ~/.config/sway/config.d/*.conf
 
-    # swaysome - awesomewm style workspaces
-    # make conditional on external monitor detection
-    # include ~/.config/sway/config.d/*.conf
-
-    # MOVED TO GREETD CONFIGS
-    # env vars to dbus for xdg-desktop-portal-wlr
-    # exec systemctl --user import-environment
-
+# MOVED TO GREETD CONFIGS
+# env vars to dbus for xdg-desktop-portal-wlr
+# exec systemctl --user import-environment

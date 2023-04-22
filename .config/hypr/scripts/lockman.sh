@@ -4,6 +4,6 @@ swayidle \
     timeout  300 'hyprctl dispatch "output * dpms off"' \
     resume 'hyprctl dispatch "output * dpms on"' &
 # Locks the screen immediately
-swaylock
+swaylock -C ~/.config/swaylock/config
 # Kills last background task so idle timer doesn't keep running
 kill %%

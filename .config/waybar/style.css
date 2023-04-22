@@ -28,6 +28,9 @@
 
 /* Reset all styles */
 * {
+    font-family: 'Symbols Nerd Font', 'MesloLGS Nerd Font';
+    font-weight: 500;
+    font-size: 14px;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -37,26 +40,36 @@
 }
 
 tooltip {
-    font-family: 'Symbols Nerd Font', 'CaskaydiaCove Nerd Font Mono';
-    border: 1px solid @base;
-    background-color: @overlay;
+    font-family: 'Symbols Nerd Font', 'JetBrains Mono';
+    border: 1px solid @bgLow;
+    box-shadow: rgba(50, 50, 93, 0.5) 0px 13px 27px -5px, rgba(0, 0, 0, 0.8) 0px 8px 16px -8px;
+    background-color: @surface;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
 }
 
 tooltip label {
     padding: 0.5rem 1rem;
-    color: @text;
+    color: #f2f1fa;
 }  
 
 /* The whole bar */
 #waybar {
-    background: transparent;
+    background: rgba(25, 23, 36, 0.7);
     color: @subtle;
-    font-family: 'Symbols Nerd Font', 'Iosevka Nerd Font Mono', monospace;
-    font-size: 17px;
-    font-weight: 500;
+    border-bottom: 0.5px solid rgba(82,79,103,0.6);
+}
+
+.modules-left {
+    margin-left: 5px;
+}
+.modules-right {
+    margin-right: 5px;
+}
+.modules-left, .modules-center, .modules-right {
+    opacity: 1;
+    /* background-color: rgba(25, 23, 36, 0.7); */
     /*box-shadow: inset 0 0 20px 12px rgba(66, 69, 105, 0.2);*/
 }
 
@@ -77,13 +90,10 @@ tooltip label {
 #idle_inhibitor,
 #custom-PBPbattery,
 #custom-power {
-    color: @subtle;
-    background: @bg;
-    padding-top: 0.5rem;
-    padding-bottom: 0.4rem;
-    margin-left: 0.4rem;
-    margin-top: 0.2rem;
-    margin-bottom: 0.2rem;
+    /* color: @text; */
+    /* background: @bg; */
+    padding: 2px 10px;
+    margin: 4px 2px;
 }
 
 
@@ -100,10 +110,12 @@ tooltip label {
 /* power group */
 
 #custom-power {
-    min-width: 3rem;
-    margin-right: 0.1rem;
+    padding: 2px 1rem;
+    margin: 2px;
     border-radius: 4px;
-    background: @bgLow;
+    border: 1px solid @overlay;
+    background: rgba(11, 10, 15, 0.2);
+    min-width: 1.5rem;
     color: @iris;
 }
 
@@ -111,9 +123,6 @@ tooltip label {
 /* idle group */
 
 #idle_inhibitor {
-    min-width: 3rem;
-    border-radius: 4px;
-    background: @bg;
     color: @iris;
 }
 
@@ -121,12 +130,11 @@ tooltip label {
 /* audio group */
 
 #pulseaudio {
-    min-width: 6rem;
-    border-radius: 4px;
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
+    /* min-width: 6rem; */
+    /* padding-left: 0.4rem; */
+    /* padding-right: 0.4rem; */
+    /* padding-top: 0.2rem; */
+    /* padding-bottom: 0.2rem; */
 }
 
 #pulseaudio.muted {
@@ -137,31 +145,27 @@ tooltip label {
 /* audio group */
 
 #bluetooth {
-    min-width: 4rem;
-    margin-left: 0;
+    min-width: 2.5rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    border-left: 1px solid @bg;
-    border-radius: 0 4px 4px 0;
+    /* border-left: 1px solid @bg; */
 }
 
 #backlight {
-    min-width: 4rem;
-    padding-left: 1rem;
-    border-right: 1px solid @bg;
-    border-radius: 4px 0 0 4px;
-    margin-left: 0.4rem;
+    /* min-width: 4rem; */
+    /* padding: 0 1rem 0 1rem; */
+    /* border-right: 1px solid @bg; */
+    /* margin-left: 0.4rem; */
 }
 
 #memory {
-    min-width: 4rem;
-    padding-right: 0.8rem;
-    margin-left: 0;
+    /* min-width: 3rem; */
+    /* padding-right: 0.8rem; */
+    /* margin-left: 0; */
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    border-left: 1px solid @bg;
-    border-radius: 0 4px 4px 0;
+    /* border-left: 1px solid @bg; */
 }
 
 #memory.warning {
@@ -178,11 +182,11 @@ tooltip label {
 
 
 #cpu {
-    min-width: 4rem;
-    padding-left: 0.6rem;
-    border-right: 1px solid @bg;
-    border-radius: 4px 0 0 4px;
-    margin-left: 0.4rem;
+    /* min-width: 3rem; */
+    /* padding-left: 0.6rem; */
+    /* border-right: 1px solid @bg; */
+    /* margin-left: 0.4rem; */
+    /* margin-right: 0; */
 }
 
 #cpu.warning {
@@ -191,17 +195,21 @@ tooltip label {
 
 #cpu.critical {
     color: @love;
+    animation-name: blink-critical;
+    animation-duration: 2s;
 }
 
-
 #tray {
-    padding-left: 1.4rem;
-    padding-right: 1.4rem;
+    padding: 2px 1rem;
+    margin: 2px 0;
     border-radius: 4px;
+    border: 1px solid @overlay;
+    background: rgba(11, 10, 15, 0.2);
 }
 
 #tray > .passive {
     -gtk-icon-palette: success @muted, error @love, warning @rose;
+    -gtk-icon-effect: dim;
 }
 
 #tray > .active {
@@ -210,12 +218,12 @@ tooltip label {
 
 #tray > .needs-attention {
     -gtk-icon-palette: success @love, error @love, warning @rose;
+    -gtk-icon-effect: highlight;
 }
 
 #network {
     min-width: 4rem;
     padding-right: 1rem;
-    border-radius: 0 4px 4px 0;
 }
 
 #network.disconnected {
@@ -238,9 +246,6 @@ tooltip label {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    min-width: 5rem;
-    margin-left: 0;
-    border-radius: 4px;
 }
 
 #battery.warning {
@@ -265,22 +270,19 @@ tooltip label {
 /* clock group */
 
 #clock {
-    border-radius: 4px;
-    min-width: 10rem;
-    margin-left: 0.2rem;
-    margin-right: 0.2rem;
-    color: @iris;
-    font-size: 19px;
+    /* background: rgba(11, 10, 30, 0.2); */
+    /* border: 1px solid @overlay; */
     font-weight: 700;
-    background: @bgLow;
+    /* border-radius: 4px; */
+    /* padding: 6px 1.5rem; */
+    /* margin: 2px 0.5rem; */
+    color: @foam;
 }
 
 
 /* weather group */
 
 #custom-weather {
-    min-width: 5rem;
-    border-radius: 4px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -296,33 +298,31 @@ tooltip label {
 }
 
 #workspaces {
-    background: @bgLow;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-    margin-top: 0.1rem;
     margin-bottom: 0.1rem;
+    padding: 0;
 }
+
 
 #workspaces:first-child {
     margin-left: 0.5rem;
-    border-radius: 4px 0 0 4px;
 }
+
 
 #workspaces:last-child {
     margin-right: 0.5rem;
-    border-radius: 0 4px 4px 0;
 }
+
 
 #workspaces button {
     border-bottom: 2px solid transparent;
-    margin: 0.3rem 0.5rem;
+    margin: 0.3rem 0.4rem;
     padding: 0px;
     color: @muted;
     font-size: 15px;
     font-weight: 400;
-    min-width: 2rem;
+    min-width: 1.5rem;
 }
-
+/*
 #workspaces button:first-child {
     margin-left: 1rem;
 }
@@ -330,15 +330,24 @@ tooltip label {
 #workspaces button:last-child {
     margin-right: 1rem;
 }
+*/
 
+#workspaces button.active {
+    border-bottom: 2px solid @foam;
+    margin-bottom: 4px;
+    padding-left: 0;
+    color: @iris;
+    font-weight: 900;
+}
+/*
 #workspaces button.focused {
     border-bottom: 2px solid @foam;
     margin-bottom: 1px;
     padding-left: 0;
     color: @iris;
-    font-size: 16px;
     font-weight: 900;
 }
+*/
 
 #workspaces button:hover {
     box-shadow: inherit;

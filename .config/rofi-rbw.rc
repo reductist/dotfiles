@@ -1,0 +1,4 @@
+action=copy
+target=password
+clipboarder=wl-copy
+clear-after=60

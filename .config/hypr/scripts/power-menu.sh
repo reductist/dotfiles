@@ -12,5 +12,5 @@ case $selected in
   reboot)
     hyprctl dispatch exec systemctl reboot;;
   shutdown)
-    hyprctl dispatch exec systemctl poweroff -i;;
+    hyprctl dispatch 'exec systemctl poweroff -i';;
 esac

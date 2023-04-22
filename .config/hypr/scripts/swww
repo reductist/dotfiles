@@ -1,0 +1,14 @@
+#!/bin/bash
+
+swww_schedule() {
+    echo "swww img $1" | at "$2"
+}
+
+if [[ "$1" == '-h' || "$1" == '--help' ]]; then
+    cat <<- EOF
+        $(basename "$0") <PATH> <HH:MM>
+EOF
+    exit 0;
+fi
+
+swww_schedule "$1" "$2"

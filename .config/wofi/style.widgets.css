@@ -1,48 +1,52 @@
-/*
-Arc-Dark Color Scheme
-*/
-
-@define-color highlight #c4a7e7;
-@define-color base1  #43407b;
-@define-color base2  #393552;
-@define-color base3  #1E1D2F;
-
-*{
-    font-family: MesloLGS Nerd Font;
-}
-
-#window {
-    border: 1px solid @highlight;
-    border-radius: 6px;
+window {
+    margin: 0px;
+    background-color: #191724;
+    border-radius: 4px;
+    border: 1px solid #31748f;
+    font-family: 'CaskaydiaCove Nerd Font';
+    font-size: 16px;
+	font-weight: 500;
 }
 
 #inner-box {
-    background-color: @base3;
-    border: 1.5px solid @base1;
-    border-radius: 4px;
+	padding: 0;
+	margin-right: 1rem;
+	margin-left: 1rem;
 }
 
 #outer-box {
-    margin: 2px;
-    padding: 0 1rem 0.5rem 1rem;
-    background-color: @base2;
+    margin: 5px;
+	padding: 0 1rem;
+    border: none;
+    background-color: #030305;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
 }
 
 #text {
-    padding: 5px;
-    color: #e0def4;
+    margin-left: 3rem;
+    border: none;
+    color: #605a68;
+    outline: none;
+} 
+
+#entry {
+	background-color: rgba(0,0,0,0);
+	min-height: 2rem;
+	border: 1px solid transparent;
+	border-top: 1px solid rgba(0,0,0,0.5);
+    outline: none;
 }
 
 #text:selected {
-    color: #2a273f;
-    font-weight: 700;
+	color: #9ccfd8;
 }
 
-#entry {
-    background-color: @base3;
-    padding-left: 1rem;
-}
 
 #entry:selected {
-    background-color: @highlight;
+    border: 1px solid #c4a7e7;
+    outline: none;
 }

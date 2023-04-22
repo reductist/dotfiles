@@ -11,3 +11,10 @@ exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY;
 
 # only enable this if every app you use is compatible with wayland
 # xwayland disable
+
+# wob socket
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+
+# swaysome
+# include ~/.config/sway/config.d/*.conf

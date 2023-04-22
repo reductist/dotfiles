@@ -82,5 +82,5 @@ symbol = " "
 symbol = "🅢 "
 
 [character]
-success_symbol = "[ ](bold #7FFFD4)"
+success_symbol = "[ ](bold #7FFFD4)"
 

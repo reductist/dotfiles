@@ -119,10 +119,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: CaskaydiaCove Nerd Font Mono
+    family: IosevkaTerm Nerd Font 
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: SemiBold
 
   # Bold font face
   bold:
@@ -130,7 +130,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: CaskaydiaCove Nerd Font Mono
+    family: IosevkaTerm Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -141,10 +141,10 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: CaskaydiaCove Nerd Font Mono
+    family: IosevkaTerm Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Italic
+    style: SemiBold Italic
 
   # Bold italic font face
   bold_italic:
@@ -152,13 +152,13 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: CaskaydiaCove Nerd Font Mono
+    family: IosevkaTerm Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 11
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -179,7 +179,7 @@ font:
   # If `true`, Alacritty will use a custom built-in font for box drawing
   # characters (Unicode points 2500 - 259f).
   #
-  #builtin_box_drawing: true
+  builtin_box_drawing: true
 
 custom_cursor_colors: false
 
@@ -1677,8 +1677,8 @@ schemes:
       background: "0x191724"
       foreground: "0xe0def4"
     cursor:
-      text: "0xe0def4"
-      cursor: "0x524f67"
+      text: "0x000000" #"0xe0def4"
+      cursor: "CellForeground" #"0x524f67"
     vi_mode_cursor:
       text: "0xe0def4"
       cursor: "0x524f67"
@@ -1764,7 +1764,7 @@ schemes:
     # Cursor colors
     cursor:
       text: CellBackground
-      cursor: CellForeground
+      cursor: "0xe0def4" #CellForeground
 
     search:
       matches:
@@ -1815,9 +1815,9 @@ schemes:
   #
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  # cursor:
-  #   text: '#1e2030'
-  #   cursor: '#1e2030'
+  cursor:
+    text: '#1e2030'
+    cursor: '#21202e0' #'#1e2030'
 
   # Selection colors
   #

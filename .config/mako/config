@@ -1,0 +1,31 @@
+font=UbuntuMono 12.5
+
+width=450
+padding=20,20
+background-color=#161720ee
+border-color=#12151a
+text-color=#d6e5fb
+default-timeout=8000
+progress-color=over #d6e5fb
+
+icon-path=/usr/share/icons/Arc-X-D
+max-icon-size=70
+layer=overlay
+group-by=summary
+
+border-size=2
+border-radius=4
+border-color=#9294df
+
+default-timeout=5000
+
+[hidden]
+background-color=#bfbfbfff
+format=+ %h
+
+[urgency=high]
+background-color=#1f212eee
+border-color=#f0185a00
+text-color=#f0185a
+ignore-timeout=true
+default-timeout=0

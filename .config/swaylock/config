@@ -1,0 +1,50 @@
+# indicator
+# no-unlock-indicator
+# daemonize
+indicator-caps-lock
+# datestr=%A
+image=$HOME/.config/wallpapers/pixelart_mountains.png
+effect-blur=12x5
+effect-vignette=0.5:0.5
+effect-pixelate=20
+scaling=fill
+font=Iosevka Nerd Font Heavy
+font-size=24
+
+# Ring
+indicator-radius=90
+indicator-thickness=4
+# line-uses-ring
+key-hl-color=5b29ff
+bs-hl-color=15539E
+separator-color=00ff0000
+inside-color=00ff0000
+inside-clear-color=ffffff00
+line-clear-color=808080
+ring-clear-color=808080
+inside-ver-color=FFFFFF00
+ring-ver-color=00db80
+line-ver-color=00db80
+inside-wrong-color=F97583DD
+ring-wrong-color=F97583DD
+line-wrong-color=F97583DD
+text-clear-color=FBFAFA00
+text-ver-color=FBFAFA00
+text-wrong-color=FBFAFA00
+
+line-color=#3b4252
+ring-color=#4c566a
+layout-text-color=#eceff4
+text-color=#9c9eb0
+#text-color=#d8dee9
+#inside-color=#2e344098
+# inside-ver-color=#5e81ac
+# line-ver-color=#5e81ac
+# ring-ver-color=#5e81ac98
+#key-hl-color=#5e81ac
+#separator-color=#4c566a
+# line-wrong-color=#d08770
+
+fade-in=0.3
+indicator
+clock

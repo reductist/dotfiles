@@ -1,0 +1,11 @@
+profile docked {
+  output eDP-1 disable
+  output "Toshiba America Info Systems Inc TOSHIBA-TV 0x00000101" enable mode 1920x1080@60.000Hz position 0,0 scale 1
+  exec notify-send "Connected HDMI-A-1 TOSHIBA-TV" 
+  output "Dell Inc. Dell AW3418DW #ASOQVo8ISq3d" mode 3440x1440@120.000Hz position 1920,0 scale 1
+  exec notify-send "Connected DP-2 Dell AW3418DW"
+}
+
+profile mobile {
+  output eDP-1 enable scale 1
+}
